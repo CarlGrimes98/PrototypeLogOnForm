@@ -10,9 +10,11 @@ using System.Windows.Forms;
 
 namespace PrototypeLogOnForm
 {
-    public partial class Form1 : Form
+    public partial class LogOnForm : Form
     {
-        public Form1()
+        static public string user;
+
+        public LogOnForm()
         {
             InitializeComponent();
         }
