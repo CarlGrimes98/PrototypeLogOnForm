@@ -19,45 +19,67 @@ namespace PrototypeLogOnForm
 
         private void MainMenuForm_Load(object sender, EventArgs e)
         {
-            if (LogOnForm.user == "pm")
+            try
             {
+                if (LogOnForm.user == "pm")
+                {
 
 
-                btnPatients.Visible = true;
-                btnStaff.Visible = true;
-                btnAppointment.Visible = true;
-                btnSearch.Visible = true;
-                btnGenerate.Visible = true;
+                    btnPatients.Visible = true;
+                    btnStaff.Visible = true;
+                    btnAppointment.Visible = true;
+                    btnSearch.Visible = true;
+                    btnGenerate.Visible = true;
 
-                LogOnForm.user = "";
+                    LogOnForm.user = "";
+                }
+
+                else if (LogOnForm.user == "d")
+                {
+                    btnPatients.Visible = true;
+                    btnStaff.Visible = true;
+                    btnAppointment.Visible = true;
+                    btnSearch.Visible = true;
+                    btnGenerate.Visible = false;
+
+                    LogOnForm.user = "";
+                }
+
+                else if (LogOnForm.user == "r")
+                {
+                    btnPatients.Visible = true;
+                    btnStaff.Visible = true;
+                    btnAppointment.Visible = true;
+                    btnSearch.Visible = false;
+                    btnGenerate.Visible = false;
+
+                    LogOnForm.user = "";
+                }
             }
 
-            else if (LogOnForm.user == "d")
+            catch
             {
-                btnPatients.Visible = true;
-                btnStaff.Visible = true;
-                btnAppointment.Visible = true;
-                btnSearch.Visible = true;
-                btnGenerate.Visible = false;
-
-                LogOnForm.user = "";
+                MessageBox.Show("Sorry, an error has occured. Please try again.");
             }
-
-            else if (LogOnForm.user == "r")
-            {
-                btnPatients.Visible = true;
-                btnStaff.Visible = true;
-                btnAppointment.Visible = true;
-                btnSearch.Visible = false;
-                btnGenerate.Visible = false;
-
-                LogOnForm.user = "";
-            }
+            
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            try
+            {
+                if (MessageBox.Show("Are you sure you wish to exit?", "Exit", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+            }
+
+            catch
+            {
+                MessageBox.Show("Sorry, an error has occured. Please try again.");
+            }
+            
+                
         }
     }
 }

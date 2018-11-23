@@ -25,64 +25,85 @@ namespace PrototypeLogOnForm
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            try
+            {
+                if (MessageBox.Show("Are you sure you wish to exit?", "Exit", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+            }
+
+            catch
+            {
+                MessageBox.Show("Sorry, an error has occured. Please try again.");
+            }
+
+            
         }
 
         private void btnConfirmDetails_Click(object sender, EventArgs e)
         {
-            if (tbxUsername.Text == "R-Williams" && tbxPassword.Text == "ironman")
+            try
             {
-                MessageBox.Show("Access Granted. Details are correct.");
-                user = "r";
-                this.Hide();
-                menuScreen.Show();
+                if (tbxUsername.Text == "R-Williams" && tbxPassword.Text == "ironman")
+                {
+                    MessageBox.Show("Access Granted. Details are correct.");
+                    user = "r";
+                    this.Hide();
+                    menuScreen.Show();
 
+                }
+
+                else if (tbxUsername.Text == "D-Patel" && tbxPassword.Text == "hulk")
+                {
+                    MessageBox.Show("Access Granted. Details are correct.");
+                    user = "d";
+                    this.Hide();
+                    menuScreen.Show();
+
+                }
+
+                else if (tbxUsername.Text == "D-Jones" && tbxPassword.Text == "hawkeye")
+                {
+                    MessageBox.Show("Access Granted. Details are correct.");
+                    user = "d";
+                    this.Hide();
+                    menuScreen.Show();
+
+                }
+
+                else if (tbxUsername.Text == "PM-Smith" && tbxPassword.Text == "widow")
+                {
+                    MessageBox.Show("Access Granted. Details are correct.");
+                    user = "pm";
+                    this.Hide();
+                    menuScreen.Show();
+
+                }
+
+                else
+                {
+                    MessageBox.Show("Sorry, an error has occured. Username/Password is incorrect. Please try again.");
+                    tbxUsername.Clear();
+                    tbxPassword.Clear();
+                    NoOfTimesAttempted++;
+
+
+                }
+
+                if (NoOfTimesAttempted == 3)
+                {
+                    MessageBox.Show("Number of atttempts exceeded. Please try again later.");
+                    tbxUsername.Enabled = false;
+                    tbxPassword.Enabled = false;
+                    btnConfirmDetails.Visible = false;
+                    tmrSuspend.Enabled = true;
+                }
             }
 
-            else if (tbxUsername.Text == "D-Patel" && tbxPassword.Text == "hulk")
+            catch
             {
-                MessageBox.Show("Access Granted. Details are correct.");
-                user = "d";
-                this.Hide();
-                menuScreen.Show();
-
-            }
-
-            else if (tbxUsername.Text == "D-Jones" && tbxPassword.Text == "hawkeye")
-            {
-                MessageBox.Show("Access Granted. Details are correct.");
-                user = "d";
-                this.Hide();
-                menuScreen.Show();
-
-            }
-
-            else if (tbxUsername.Text == "PM-Smith" && tbxPassword.Text == "widow")
-            {
-                MessageBox.Show("Access Granted. Details are correct.");
-                user = "pm";
-                this.Hide();
-                menuScreen.Show();
-
-            }
-
-            else
-            {
-                MessageBox.Show("Error. Details are not correct");
-                tbxUsername.Clear();
-                tbxPassword.Clear();
-                NoOfTimesAttempted++;
-
-
-            }
-
-            if (NoOfTimesAttempted == 3)
-            {
-                MessageBox.Show("Number of atttempts exceeded. Try again later.");
-                tbxUsername.Enabled = false;
-                tbxPassword.Enabled = false;
-                btnConfirmDetails.Visible = false;
-                tmrSuspend.Enabled = true;
+                MessageBox.Show("Sorry, an error has occured. Please try again.");
             }
         }
     }
