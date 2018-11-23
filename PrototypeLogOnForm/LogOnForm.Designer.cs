@@ -123,7 +123,7 @@
             // 
             // tmrSuspend
             // 
-            this.tmrSuspend.Interval = 30000;
+            this.tmrSuspend.Interval = 5000;
             // 
             // LogOnForm
             // 

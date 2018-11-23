@@ -21,31 +21,31 @@ namespace PrototypeLogOnForm
         {
             try
             {
-                if (LogOnForm.user == "pm")
+                if (LogOnForm.user == "pm") //Statements for Levels of Access.
                 {
 
 
-                    btnPatients.Visible = true;
+                    btnPatients.Visible = true; //True == Shows Button.
                     btnStaff.Visible = true;
                     btnAppointment.Visible = true;
                     btnSearch.Visible = true;
                     btnGenerate.Visible = true;
 
-                    LogOnForm.user = "";
+                    LogOnForm.user = ""; //Resets user after every log-on.
                 }
 
-                else if (LogOnForm.user == "d")
+                else if (LogOnForm.user == "d") //Statements for Levels of Access.
                 {
                     btnPatients.Visible = true;
                     btnStaff.Visible = true;
                     btnAppointment.Visible = true;
                     btnSearch.Visible = true;
-                    btnGenerate.Visible = false;
+                    btnGenerate.Visible = false; //False == Hides Button.
 
                     LogOnForm.user = "";
                 }
 
-                else if (LogOnForm.user == "r")
+                else if (LogOnForm.user == "r") //Statements for Levels of Access.
                 {
                     btnPatients.Visible = true;
                     btnStaff.Visible = true;
@@ -59,7 +59,7 @@ namespace PrototypeLogOnForm
 
             catch
             {
-                MessageBox.Show("Sorry, an error has occured. Please try again.");
+                MessageBox.Show("Sorry, an error has occured. Please try again."); //Try/Catch Error Message.
             }
             
         }
@@ -68,15 +68,15 @@ namespace PrototypeLogOnForm
         {
             try
             {
-                if (MessageBox.Show("Are you sure you wish to exit?", "Exit", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure you wish to exit?", "Exit", MessageBoxButtons.YesNo) == DialogResult.Yes) //Popup Message Box Confiming Leave.
                 {
-                    Application.Exit();
+                    Application.Exit(); //Exits Application.
                 }
             }
 
             catch
             {
-                MessageBox.Show("Sorry, an error has occured. Please try again.");
+                MessageBox.Show("Sorry, an error has occured. Please try again."); //Try/Catch Error Message.
             }
             
                 
