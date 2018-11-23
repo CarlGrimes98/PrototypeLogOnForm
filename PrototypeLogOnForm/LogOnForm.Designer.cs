@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
@@ -36,6 +37,7 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.tbxUsername = new System.Windows.Forms.TextBox();
             this.tbxPassword = new System.Windows.Forms.TextBox();
+            this.tmrSuspend = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // lblTitle
@@ -91,6 +93,7 @@
             this.btnConfirmDetails.TabIndex = 4;
             this.btnConfirmDetails.Text = "Submit";
             this.btnConfirmDetails.UseVisualStyleBackColor = true;
+            this.btnConfirmDetails.Click += new System.EventHandler(this.btnConfirmDetails_Click);
             // 
             // btnExit
             // 
@@ -101,6 +104,7 @@
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // tbxUsername
             // 
@@ -116,6 +120,10 @@
             this.tbxPassword.PasswordChar = '*';
             this.tbxPassword.Size = new System.Drawing.Size(238, 20);
             this.tbxPassword.TabIndex = 7;
+            // 
+            // tmrSuspend
+            // 
+            this.tmrSuspend.Interval = 30000;
             // 
             // LogOnForm
             // 
@@ -149,6 +157,7 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.TextBox tbxUsername;
         private System.Windows.Forms.TextBox tbxPassword;
+        private System.Windows.Forms.Timer tmrSuspend;
     }
 }
 
